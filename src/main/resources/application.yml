@@ -1,0 +1,28 @@
+spring:
+  resources:
+    static-locations:
+    #静态资源文件夹,参考WebMvnAutoConfiguration,访问/webjars跳转到/META-INF/webjars/,访问/**跳转到静态资源文件夹,默认配置参考配置类
+    - classpath:/hello/
+    
+#访问任意路径下的favicon.ico都会跳转到静态资源文件夹下的favicon.ico,对**/favicon.ico映射进行了处理
+
+#指定默认属性文件,文件夹用.说明,不用/  默认是messages也就是说可以直接在类路径下写messages.properties,spring会去找到. 后面
+#的文件, 比如这里配置了il8n.login,就会去找类路径下il8n文件夹的login.properties文件, 然后再页面就可以直接用#{xxx.xxx引
+#用了}, 相当于把这些属性放入了请求域？无额外配置下messages配置文件测试通过
+  messages:
+    basename: il8n.login 
+    
+  #禁用模板引擎的缓存
+  thymeleaf:
+    cache: false
+    
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+    
+  datasource:
+    username: root
+    password: 1111
+    url: jdbc:mysql://192.168.1.103:3306/user?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    
