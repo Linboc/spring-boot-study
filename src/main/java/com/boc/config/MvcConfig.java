@@ -48,6 +48,9 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/main").setViewName("dashboard");
     }
     
+    /**
+     * 添加拦截器
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginHandlerInterceptor())
@@ -120,7 +123,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         return new DruidDataSource();
     }
     /**
-     * 展示数据用的servlet
+     * druid展示数据用的servlet
      * @return
      */
     @Bean
@@ -153,7 +156,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     
     @Bean
     public ConfigurationCustomizer configurationCustomizer() {
-        //设置entite和数据库的字段格式,驼峰自动转下划线
+        //设置entite和数据库的字段格式,驼峰自动转下划线，其实在配置文件里面写这个属性为true就可以了
         return c -> c.setMapUnderscoreToCamelCase(true);
     }
     
