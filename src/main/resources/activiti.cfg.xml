@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans">
+
+	<bean id="processEngineConfiguration"
+		clazz="com.boc.SpringBootWebApplicationTests$Bean">
+		<!-- 连接数据的配置 -->
+		<property name="jdbcDriver" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl"
+			value="jdbc:mysql://localhost:3306/activiti?useUnicode=true&amp;characterEncoding=utf8"></property>
+		<property name="jdbcUsername" value="root"></property>
+		<property name="jdbcPassword" value="1111"></property>
+		<!-- 没有表创建表 -->
+		<property name="databaseSchemaUpdate" value="true"></property>
+	</bean>
+
+</beans>
